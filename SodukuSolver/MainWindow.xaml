@@ -1,0 +1,50 @@
+﻿<Window x:Class="SudokuSolver.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SudokuSolver"
+        mc:Ignorable="d"
+        Title="Mike's Ghetto SudoKU" Height="562.667" Width="540" ResizeMode="NoResize">
+    <Window.Resources>
+
+
+        <DataTemplate x:Key="DataTemplate_Level2">
+            <Button Click="Input" Content="{Binding Path=Value}" BorderBrush="{Binding Border}" Height="40" Width="50" Margin="4,4,4,4"/>
+        </DataTemplate>
+
+        <DataTemplate x:Key="DataTemplate_Level1">
+            <ItemsControl ItemsSource="{Binding}" ItemTemplate="{DynamicResource DataTemplate_Level2}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <StackPanel VerticalAlignment="Top">
+            <Menu Width="Auto" Height="20">
+                <MenuItem Header="_File">
+                    <MenuItem x:Name="AppExit" Header="E_xit" HorizontalAlignment="Left" Width="140" Click="AppExit_Click"/>
+                </MenuItem>
+                <MenuItem Header="_Tools">
+                    <MenuItem x:Name="Options" Header="Difficulty" HorizontalAlignment="Left" Width="140">
+                        <MenuItem x:Name="Easy" Header="Easy" />
+                        <MenuItem x:Name="Med" Header="Medium" />
+                        <MenuItem x:Name="Hard" Header="Hard" />
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="_Help">
+                    <MenuItem x:Name="About" Header="About" HorizontalAlignment="Left" Width="140" Click="About_Click" />
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+        <Button x:Name="btnSubmit" Visibility="Visible" Content="Submit Solution" HorizontalAlignment="Left" Margin="215,0,0,475.333" Width="100" Click="Submit_Solution" Height="20" VerticalAlignment="Bottom"/>
+        <Grid Height="475" Margin="0,0,0.333,0.333" VerticalAlignment="Bottom">
+            <ItemsControl x:Name="lst" ItemTemplate="{DynamicResource DataTemplate_Level1}" Margin="0,0,-0.667,-0.333"></ItemsControl>
+        </Grid>
+    </Grid>
+</Window>
