@@ -7,8 +7,6 @@
         mc:Ignorable="d"
         Title="Mike's Ghetto SudoKU" Height="562.667" Width="540" ResizeMode="NoResize">
     <Window.Resources>
-
-
         <DataTemplate x:Key="DataTemplate_Level2">
             <Button Click="Input" Content="{Binding Path=Value}" BorderBrush="{Binding Border}" Height="40" Width="50" Margin="4,4,4,4"/>
         </DataTemplate>
@@ -42,7 +40,7 @@
                 </MenuItem>
             </Menu>
         </StackPanel>
-        <Button x:Name="btnSubmit" Visibility="Visible" Content="Submit Solution" HorizontalAlignment="Left" Margin="215,0,0,475.333" Width="100" Click="Submit_Solution" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnSubmit" Visibility="Hidden" Content="Submit Solution" HorizontalAlignment="Left" Margin="215,0,0,475.333" Width="100" Click="Submit_Solution" Height="20" VerticalAlignment="Bottom"/>
         <Grid Height="475" Margin="0,0,0.333,0.333" VerticalAlignment="Bottom">
             <ItemsControl x:Name="lst" ItemTemplate="{DynamicResource DataTemplate_Level1}" Margin="0,0,-0.667,-0.333"></ItemsControl>
         </Grid>
